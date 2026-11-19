@@ -76,6 +76,7 @@ welfare-management-system/
 ```bash
 git clone YOUR_REPOSITORY_URL
 https://github.com/Rizwan1353/Welfare-Management-System-PWF-People-s-Walfare-Management-
+```
 
 2. Navigate into the project:
 
