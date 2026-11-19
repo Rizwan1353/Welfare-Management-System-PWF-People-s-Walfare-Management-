@@ -1,0 +1,7 @@
+[
+  { "id": "don1", "name": "Ahmed Raza", "senderAccountNumber": "0300-1234567", "amount": 5000, "method": "EasyPaisa", "referenceNo": "WF-2026-000101", "slipFilename": null, "status": "verified", "reviewedBy": "u2", "reviewedAt": "2026-07-01T10:00:00.000Z", "createdAt": "2026-07-01T09:12:00.000Z" },
+  { "id": "don2", "name": "Sana Khan", "senderAccountNumber": "PK36SCBL0000001123456702", "amount": 15000, "method": "Bank Transfer", "referenceNo": "WF-2026-000102", "slipFilename": null, "status": "verified", "reviewedBy": "u2", "reviewedAt": "2026-07-04T15:00:00.000Z", "createdAt": "2026-07-04T14:05:00.000Z" },
+  { "id": "don3", "name": "Bilal Memon", "senderAccountNumber": "0345-3456789", "amount": 2500, "method": "JazzCash", "referenceNo": "WF-2026-000103", "slipFilename": null, "status": "verified", "reviewedBy": "u2", "reviewedAt": "2026-07-10T12:00:00.000Z", "createdAt": "2026-07-10T11:40:00.000Z" },
+  { "id": "don4", "name": "Fatima Solangi", "senderAccountNumber": "0321-4567890", "amount": 10000, "method": "EasyPaisa", "referenceNo": "WF-2026-000104", "slipFilename": null, "status": "pending", "createdAt": "2026-07-20T18:22:00.000Z" },
+  { "id": "don5", "name": "Anonymous", "senderAccountNumber": "0300-9998888", "amount": 7500, "method": "JazzCash", "referenceNo": "WF-2026-000105", "slipFilename": null, "status": "pending", "createdAt": "2026-08-02T10:00:00.000Z" }
+]

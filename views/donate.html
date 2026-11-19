@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Donate — PWF | People's Welfare Foundation</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/app.css" />
+<style>
+  body { font-family: 'Inter', sans-serif; }
+  .font-display { font-family: 'Fraunces', serif; }
+  .glass {
+    background: rgba(13, 34, 33, 0.35);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(212, 175, 106, 0.18);
+  }
+  .field-glass { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); }
+  .field-glass:focus-within { border-color: rgba(212, 175, 106, 0.55); background: rgba(255, 255, 255, 0.09); }
+  .method-card {
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(255,255,255,0.04);
+    transition: all 0.15s ease;
+  }
+  .method-card:hover { background: rgba(255,255,255,0.08); }
+  .method-card.selected { border-color: #d4af6a; background: rgba(212,175,106,0.12); }
+  .pay-detail-row { border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .pay-detail-row:last-child { border-bottom: none; }
+  .copy-btn { transition: color 0.15s ease; }
+  .step-num {
+    width: 1.6rem; height: 1.6rem; border-radius: 999px;
+    background: rgba(212,175,106,0.14); border: 1px solid rgba(212,175,106,0.35);
+    color: #d4af6a; font-size: 0.7rem; font-weight: 700;
+    display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .file-drop {
+    border: 1.5px dashed rgba(255,255,255,0.22);
+    background: rgba(255,255,255,0.03);
+    transition: all 0.15s ease;
+  }
+  .file-drop.drag-over { border-color: #d4af6a; background: rgba(212,175,106,0.08); }
+  @media (prefers-reduced-motion: no-preference) {
+    .rise { animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+  }
+</style>
+</head>
+<body class="min-h-screen relative overflow-hidden" style="background: radial-gradient(circle at 20% 10%, #1c4a45 0%, #0e2b2a 42%, #081b1d 100%);">
+
+  <svg class="absolute inset-0 w-full h-full opacity-[0.14] pointer-events-none" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <path d="M -50 120 C 150 180, 250 60, 420 140 C 590 220, 650 90, 820 160 C 990 230, 1050 120, 1250 190" stroke="#d4af6a" stroke-width="1.5" fill="none" opacity="0.6"/>
+    <path d="M -50 640 C 200 560, 320 700, 520 610 C 720 520, 830 660, 1050 580 C 1150 545, 1200 560, 1250 550" stroke="#d4af6a" stroke-width="1" fill="none" opacity="0.35"/>
+  </svg>
+
+  <header class="relative flex items-center justify-between px-5 sm:px-8 h-16">
+    <a href="/dashboard.html" class="flex items-center gap-2.5 text-white/90">
+      <img src="/assets/pwf-logo.png" alt="PWF logo" class="w-8 h-8 rounded-full object-cover shrink-0" style="background: #f4f1ea;" />
+      <span class="font-display text-sm">PWF</span>
+    </a>
+    <a id="backLink" href="/login.html" class="hidden text-xs text-white/50 hover:text-[#d4af6a] transition-colors">Staff Login</a>
+  </header>
+
+  <main class="relative flex items-center justify-center px-4 pb-16 pt-4 sm:pt-8">
+    <div class="w-full max-w-md rise">
+
+      <div class="text-center mb-7">
+        <div class="inline-flex items-center justify-center w-14 h-14 rounded-full mb-5" style="background: rgba(212,175,106,0.14); border: 1px solid rgba(212,175,106,0.35);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7.5-4.6-9.7-9.3C.7 8.2 2.6 4.8 6 4.4c2-.2 3.6.8 6 3 2.4-2.2 4-3.2 6-3 3.4.4 5.3 3.8 3.7 7.3C19.5 16.4 12 21 12 21z" stroke="#d4af6a" stroke-width="1.4" stroke-linejoin="round"/></svg>
+        </div>
+        <h1 class="font-display text-2xl text-white/95 tracking-tight mb-2">Make a Donation</h1>
+        <p class="text-sm text-white/50">No account needed — just two quick steps.</p>
+      </div>
+
+      <!-- Step 1: Our payment details -->
+      <div class="glass rounded-2xl shadow-2xl p-6 sm:p-7 mb-5">
+        <div class="flex items-center gap-2.5 mb-4">
+          <span class="step-num">1</span>
+          <h2 class="text-sm font-semibold text-white/90">Send your donation to one of these</h2>
+        </div>
+
+        <div id="paymentDetailsLoading" class="text-xs text-white/40 py-2">Loading payment details…</div>
+        <div id="paymentDetailsList" class="hidden space-y-4"></div>
+        <div id="paymentDetailsError" class="hidden text-xs text-rose-200/80 py-2">Payment details aren't available right now. Please check back soon.</div>
+
+        <p class="text-xs text-white/35 mt-4 leading-relaxed">
+          Send the amount yourself from your JazzCash, EasyPaisa, or banking app, then continue below with your proof of payment.
+        </p>
+      </div>
+
+      <!-- Step 2: Submit proof -->
+      <div class="glass rounded-2xl shadow-2xl p-6 sm:p-7">
+        <div class="flex items-center gap-2.5 mb-4">
+          <span class="step-num">2</span>
+          <h2 class="text-sm font-semibold text-white/90">Tell us about your payment</h2>
+        </div>
+
+        <form id="donateForm" novalidate>
+          <div id="formError" class="hidden mb-4 text-sm text-rose-200 bg-rose-500/10 border border-rose-400/25 rounded-lg px-3 py-2.5"></div>
+
+          <div class="mb-4">
+            <label for="donorName" class="block text-xs font-medium text-white/60 mb-1.5 uppercase tracking-wide">Your Name</label>
+            <div class="field-glass rounded-lg flex items-center px-3">
+              <input id="donorName" type="text" required placeholder="Full name"
+                class="w-full bg-transparent border-0 focus:ring-0 outline-none text-white placeholder-white/30 text-sm py-2.5" />
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label for="donorAccount" class="block text-xs font-medium text-white/60 mb-1.5 uppercase tracking-wide">Account Number You Paid From</label>
+            <div class="field-glass rounded-lg flex items-center px-3">
+              <input id="donorAccount" type="text" required placeholder="Your JazzCash/EasyPaisa number or bank account"
+                class="w-full bg-transparent border-0 focus:ring-0 outline-none text-white placeholder-white/30 text-sm py-2.5" />
+            </div>
+          </div>
+
+          <div class="mb-5">
+            <label for="donorAmount" class="block text-xs font-medium text-white/60 mb-1.5 uppercase tracking-wide">Amount Sent (PKR)</label>
+            <div class="field-glass rounded-lg flex items-center px-3">
+              <span class="text-white/40 text-sm mr-1">Rs</span>
+              <input id="donorAmount" type="number" min="50" required placeholder="1000"
+                class="w-full bg-transparent border-0 focus:ring-0 outline-none text-white placeholder-white/30 text-sm py-2.5" />
+            </div>
+          </div>
+
+          <div class="mb-5">
+            <label class="block text-xs font-medium text-white/60 mb-2 uppercase tracking-wide">Method You Used</label>
+            <div class="grid grid-cols-3 gap-2">
+              <label class="method-card rounded-lg px-2 py-3 text-center cursor-pointer">
+                <input type="radio" name="method" value="EasyPaisa" class="sr-only" />
+                <div class="w-7 h-7 rounded-full mx-auto mb-1.5 flex items-center justify-center" style="background: rgba(63,168,120,0.18);">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H7" stroke="#5fbf8e" stroke-width="1.6" stroke-linecap="round"/></svg>
+                </div>
+                <span class="text-xs text-white/75">EasyPaisa</span>
+              </label>
+              <label class="method-card rounded-lg px-2 py-3 text-center cursor-pointer">
+                <input type="radio" name="method" value="JazzCash" class="sr-only" />
+                <div class="w-7 h-7 rounded-full mx-auto mb-1.5 flex items-center justify-center" style="background: rgba(214,120,60,0.18);">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2" stroke="#e0925c" stroke-width="1.5"/><path d="M3 10h18" stroke="#e0925c" stroke-width="1.5"/></svg>
+                </div>
+                <span class="text-xs text-white/75">JazzCash</span>
+              </label>
+              <label class="method-card rounded-lg px-2 py-3 text-center cursor-pointer">
+                <input type="radio" name="method" value="Bank Transfer" class="sr-only" />
+                <div class="w-7 h-7 rounded-full mx-auto mb-1.5 flex items-center justify-center" style="background: rgba(122,152,196,0.18);">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M3 10l9-6 9 6M4 10v9h16v-9M9 19v-6h6v6" stroke="#7a98c4" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </div>
+                <span class="text-xs text-white/75">Bank Transfer</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="mb-6">
+            <label class="block text-xs font-medium text-white/60 mb-2 uppercase tracking-wide">Payment Slip / Screenshot</label>
+            <label id="fileDrop" for="slipFile" class="file-drop rounded-lg flex flex-col items-center justify-center gap-2 py-6 px-4 cursor-pointer text-center">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 16V4M12 4l-4 4M12 4l4 4" stroke="#d4af6a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3" stroke="#d4af6a" stroke-width="1.6" stroke-linecap="round"/></svg>
+              <span id="fileDropText" class="text-xs text-white/50">Tap to upload a photo or screenshot (JPG, PNG, PDF — max 5MB)</span>
+            </label>
+            <input id="slipFile" type="file" accept=".jpg,.jpeg,.png,.webp,.pdf" required class="hidden" />
+          </div>
+
+          <button type="submit" id="donateBtn"
+            class="w-full rounded-lg py-3 text-sm font-semibold tracking-wide text-[#0e2b2a] transition-all hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#0e2b2a] focus:ring-[#d4af6a] disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0"
+            style="background: linear-gradient(135deg, #e6c583, #c99a4a);">
+            <span id="donateBtnText">Submit for Review</span>
+          </button>
+        </form>
+      </div>
+
+      <p class="text-center text-xs text-white/30 mt-6">
+        No account needed. Our team reviews every submission against the uploaded slip before it's confirmed.
+      </p>
+    </div>
+  </main>
+
+  <script src="/js/donations.js"></script>
+</body>
+</html>

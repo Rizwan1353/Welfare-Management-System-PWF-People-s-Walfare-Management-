@@ -1,0 +1,22 @@
+{
+  "name": "welfare-management-system",
+  "version": "1.0.0",
+  "description": "PWF (People's Welfare Foundation) \u2014 Welfare Management System. Node.js + Express + JSON file database (no MongoDB), Tailwind CSS + vanilla JS frontend (no React).",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^17.4.2",
+    "exceljs": "^4.4.0",
+    "express": "^4.19.2",
+    "express-session": "^1.19.0",
+    "jpeg-js": "^0.4.4",
+    "multer": "^2.2.0",
+    "pdfkit": "^0.19.1",
+    "pngjs": "^7.0.0"
+  },
+  "license": "ISC"
+}

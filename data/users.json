@@ -1,0 +1,72 @@
+[
+  {
+    "id": "u1",
+    "name": "Chairperson",
+    "email": "chairperson@pwf.org.pk",
+    "passwordHash": "afc7c8a60d6259dc7b3cfeda04506656:e4d1dbd11f8381331050cdf37ca1b1b5195caead5a98257bcda232754b7c11f2baa0a490ce8d7ce06ae9b7adbd59fd0f99550d9599033aa31f790d069e8e6d93",
+    "role": "Chairperson",
+    "district": null,
+    "active": true,
+    "createdAt": "2026-08-08T04:15:31.039Z"
+  },
+  {
+    "id": "u2",
+    "name": "CEO",
+    "email": "ceo@pwf.org.pk",
+    "passwordHash": "4c166620d01599b2a6df035be2b2976d:a27fe0d129a3c37d273c6994e8e6809a1f229d61a961eec4b3635ff3f505828bcc7b013294690fa1eb72676cfd3693d097691fdc8cd10bd62335bff5574e525a",
+    "role": "CEO",
+    "district": null,
+    "active": true,
+    "createdAt": "2026-08-08T04:15:31.141Z"
+  },
+  {
+    "id": "u3",
+    "name": "Secretary General",
+    "email": "secretary.general@pwf.org.pk",
+    "passwordHash": "8df5e55fc8f2c80122b27d67056e41a2:97887c9acc7c562746bb331acd0ca235a9cbd38cfeea18fa1205c9a7697a8887fe46a843fc4608919f082890ffcac9c96fa57dba948424a1226d1330c303a7d3",
+    "role": "Secretary General",
+    "district": null,
+    "active": true,
+    "createdAt": "2026-08-08T04:15:31.183Z"
+  },
+  {
+    "id": "u4",
+    "name": "Finance Head",
+    "email": "finance.head@pwf.org.pk",
+    "passwordHash": "00a3270f7949c8b693accd2939a80dfc:049b2110d702981c74cafb3e78c02d7b012a00b10d23b863aaef460bb13b39df26e42fb4e4b11dfd78da6dd256684eb7dc6cb300f7a6fb2536090d58a5ab5f17",
+    "role": "Finance Head",
+    "district": null,
+    "active": true,
+    "createdAt": "2026-08-08T04:15:31.227Z"
+  },
+  {
+    "id": "u5",
+    "name": "Youth Affairs Head",
+    "email": "youth.affairs.head@pwf.org.pk",
+    "passwordHash": "f1357a21d149a85045e97dfeed4857a3:3192e63f5b28eb233a855efb1ce2c1de9691ebfb216343999995c7e09a6c2e0e7303f325f6820f5b6cb87eaa1daebb4e2465d8481987a771edd9a13d56d94e12",
+    "role": "Youth Affairs Head",
+    "district": null,
+    "active": true,
+    "createdAt": "2026-08-08T04:15:31.269Z"
+  },
+  {
+    "id": "u6",
+    "name": "Provincial President",
+    "email": "provincial.president@pwf.org.pk",
+    "passwordHash": "d553aef7c460211dea8a026573ce3f30:d16372dfd6dabdf663546763a10304ae83b7366f67604934d00090483726793036e7ad958bcdb26261d8e2252aef950219a8d98f0d26f35cce826c0754af2e92",
+    "role": "Provincial President",
+    "district": null,
+    "active": true,
+    "createdAt": "2026-08-08T04:15:31.310Z"
+  },
+  {
+    "id": "u7",
+    "name": "District President",
+    "email": "district.president@pwf.org.pk",
+    "passwordHash": "6efdec5c29a51ebf08691090b11b4fec:d6271e91b62f97ce798626bc24570014318002f6a44bb2353abd5775c1e50e4b5995b3a3d0be59d4c079918e805cb3293ecc0f42bd7c63a99efdd8ba7c874114",
+    "role": "District President",
+    "district": "Jamshoro",
+    "active": true,
+    "createdAt": "2026-08-08T04:15:31.349Z"
+  }
+]

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Volunteer With Us — PWF | People's Welfare Foundation</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/app.css" />
+<style>
+  body { font-family: 'Inter', sans-serif; }
+  .font-display { font-family: 'Fraunces', serif; }
+  .glass {
+    background: rgba(13, 34, 33, 0.35);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(212, 175, 106, 0.18);
+  }
+  .step-num {
+    width: 1.75rem; height: 1.75rem; border-radius: 999px;
+    background: rgba(212,175,106,0.14); border: 1px solid rgba(212,175,106,0.35);
+    color: #d4af6a; font-size: 0.75rem; font-weight: 700;
+    display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .rise { animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+  }
+</style>
+</head>
+<body class="min-h-screen relative overflow-hidden" style="background: radial-gradient(circle at 80% 10%, #1c4a45 0%, #0e2b2a 42%, #081b1d 100%);">
+
+  <svg class="absolute inset-0 w-full h-full opacity-[0.14] pointer-events-none" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <path d="M -50 120 C 150 180, 250 60, 420 140 C 590 220, 650 90, 820 160 C 990 230, 1050 120, 1250 190" stroke="#d4af6a" stroke-width="1.5" fill="none" opacity="0.6"/>
+    <path d="M -50 640 C 200 560, 320 700, 520 610 C 720 520, 830 660, 1050 580 C 1150 545, 1200 560, 1250 550" stroke="#d4af6a" stroke-width="1" fill="none" opacity="0.35"/>
+  </svg>
+
+  <header class="relative flex items-center justify-between px-5 sm:px-8 h-16">
+    <a href="/dashboard.html" class="flex items-center gap-2.5 text-white/90">
+      <img src="/assets/pwf-logo.png" alt="PWF logo" class="w-8 h-8 rounded-full object-cover shrink-0" style="background: #f4f1ea;" />
+      <span class="font-display text-sm">PWF</span>
+    </a>
+    <a id="backLink" href="/login.html" class="hidden text-xs text-white/50 hover:text-[#d4af6a] transition-colors">Staff Login</a>
+  </header>
+
+  <main class="relative flex items-center justify-center px-4 pb-16 pt-4 sm:pt-10">
+    <div class="w-full max-w-lg rise">
+
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center justify-center w-14 h-14 rounded-full mb-5" style="background: rgba(212,175,106,0.14); border: 1px solid rgba(212,175,106,0.35);">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.4" stroke="#d4af6a" stroke-width="1.4"/><path d="M4.5 20.5c1.2-4 4.4-6.2 7.5-6.2s6.3 2.2 7.5 6.2" stroke="#d4af6a" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </div>
+        <h1 class="font-display text-3xl text-white/95 tracking-tight mb-3">Volunteer With Us</h1>
+        <p class="text-sm text-white/50 leading-relaxed max-w-sm mx-auto">
+          Join our district teams working on relief, education, health, and youth programs across Sindh. It only takes a few minutes to apply.
+        </p>
+      </div>
+
+      <div class="glass rounded-2xl shadow-2xl p-7 sm:p-8 mb-6">
+        <div class="space-y-4 mb-7">
+          <div class="flex items-start gap-3">
+            <span class="step-num mt-0.5">1</span>
+            <p class="text-sm text-white/70 leading-relaxed">Fill out the volunteer application form with your details and area of interest.</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="step-num mt-0.5">2</span>
+            <p class="text-sm text-white/70 leading-relaxed">Our team reviews every application manually — we'll reach out if it's a fit.</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="step-num mt-0.5">3</span>
+            <p class="text-sm text-white/70 leading-relaxed">Approved volunteers receive an official offer letter and, after their term, a certificate.</p>
+          </div>
+        </div>
+
+        <button id="applyBtn" disabled
+          class="w-full inline-flex items-center justify-center gap-2 rounded-lg py-3.5 text-sm font-semibold tracking-wide text-[#0e2b2a] transition-all hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#0e2b2a] focus:ring-[#d4af6a] disabled:opacity-50 disabled:cursor-not-allowed disabled:translate-y-0"
+          style="background: linear-gradient(135deg, #e6c583, #c99a4a);">
+          <span id="applyBtnText">Loading…</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M7 7h10v10" stroke="#0e2b2a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <p id="formNote" class="hidden mt-3 text-xs text-center text-white/40">Opens in a new tab — Google Form</p>
+        <p id="unconfiguredNote" class="hidden mt-3 text-xs text-center text-rose-200/80">The application form link hasn't been set up yet. Please check back soon.</p>
+      </div>
+
+      <p class="text-center text-xs text-white/30">
+        No account is needed to apply. Volunteer accounts are never created — only staff sign in to this system.
+      </p>
+    </div>
+  </main>
+
+  <script src="/js/volunteers.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thank You — PWF | People's Welfare Foundation</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/app.css" />
+<style>
+  body { font-family: 'Inter', sans-serif; }
+  .font-display { font-family: 'Fraunces', serif; }
+  .glass {
+    background: rgba(13, 34, 33, 0.35);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(212, 175, 106, 0.18);
+  }
+  .receipt {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .receipt-divider {
+    border-top: 1px dashed rgba(255,255,255,0.18);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .rise { animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    .pop { animation: pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s both; }
+    @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pop { from { opacity: 0; transform: scale(0.7); } to { opacity: 1; transform: scale(1); } }
+  }
+</style>
+</head>
+<body class="min-h-screen relative overflow-hidden" style="background: radial-gradient(circle at 80% 15%, #1c4a45 0%, #0e2b2a 42%, #081b1d 100%);">
+
+  <svg class="absolute inset-0 w-full h-full opacity-[0.14] pointer-events-none" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <path d="M -50 120 C 150 180, 250 60, 420 140 C 590 220, 650 90, 820 160 C 990 230, 1050 120, 1250 190" stroke="#d4af6a" stroke-width="1.5" fill="none" opacity="0.6"/>
+    <path d="M -50 640 C 200 560, 320 700, 520 610 C 720 520, 830 660, 1050 580 C 1150 545, 1200 560, 1250 550" stroke="#d4af6a" stroke-width="1" fill="none" opacity="0.35"/>
+  </svg>
+
+  <header class="relative flex items-center justify-between px-5 sm:px-8 h-16">
+    <a href="/dashboard.html" class="flex items-center gap-2.5 text-white/90">
+      <img src="/assets/pwf-logo.png" alt="PWF logo" class="w-8 h-8 rounded-full object-cover shrink-0" style="background: #f4f1ea;" />
+      <span class="font-display text-sm">PWF</span>
+    </a>
+    <a id="backLink" href="/login.html" class="hidden text-xs text-white/50 hover:text-[#d4af6a] transition-colors">Staff Login</a>
+  </header>
+
+  <main class="relative flex items-center justify-center px-4 pb-16 pt-4 sm:pt-8">
+    <div class="w-full max-w-md rise">
+
+      <!-- Receipt view (donation details present) -->
+      <div id="receiptView" class="hidden text-center">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6 pop" style="background: rgba(212,175,106,0.14); border: 1px solid rgba(212,175,106,0.4);">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#d4af6a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h1 class="font-display text-2xl text-white/95 mb-2">Thank You For Your Donation</h1>
+        <p class="text-sm text-white/55 mb-7">Your support means a lot to us.</p>
+
+        <div class="glass rounded-2xl shadow-2xl p-6 sm:p-7 text-left">
+          <div class="receipt rounded-xl p-5">
+            <div class="flex justify-between items-center mb-4">
+              <span class="text-xs font-medium uppercase tracking-wide text-white/40">Donation Receipt</span>
+              <span id="refStatus" class="text-[10px] font-semibold uppercase tracking-wide px-2 py-1 rounded-full" style="background: rgba(212,175,106,0.16); color: #d4af6a;">Pending Verification</span>
+            </div>
+
+            <div class="space-y-3 text-sm">
+              <div class="flex justify-between">
+                <span class="text-white/45">Reference Number</span>
+                <span id="refNumber" class="font-medium text-white/90 font-mono">—</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-white/45">Amount</span>
+                <span id="refAmount" class="font-semibold text-[#d4af6a]">—</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-white/45">Date</span>
+                <span id="refDate" class="font-medium text-white/90">—</span>
+              </div>
+            </div>
+
+            <div class="receipt-divider my-4"></div>
+            <p class="text-xs text-white/35 leading-relaxed">
+              We've received your payment slip. Our team will verify it against the payment and confirm your donation shortly — keep this reference number for your records.
+            </p>
+          </div>
+        </div>
+
+        <a href="/donate.html" class="inline-block mt-7 text-xs text-white/40 hover:text-[#d4af6a] transition-colors underline">Make another donation</a>
+      </div>
+
+      <!-- Fallback view (page opened directly, no donation in this session) -->
+      <div id="fallbackView" class="hidden text-center">
+        <div class="glass rounded-2xl shadow-2xl p-8 sm:p-10">
+          <div class="inline-flex items-center justify-center w-14 h-14 rounded-full mb-5" style="background: rgba(212,175,106,0.14); border: 1px solid rgba(212,175,106,0.35);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#d4af6a" stroke-width="1.4"/><path d="M12 8v5M12 16h.01" stroke="#d4af6a" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h1 class="font-display text-xl text-white/95 mb-2">No Donation Found</h1>
+          <p class="text-sm text-white/50 mb-6">This page shows a receipt right after you donate. Looks like you navigated here directly.</p>
+          <a href="/donate.html" class="inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold text-[#0e2b2a]" style="background: linear-gradient(135deg, #e6c583, #c99a4a);">
+            Make a Donation
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="/js/donation-success.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "volunteerGoogleFormUrl": "https://forms.google.com/REPLACE_WITH_REAL_FORM_URL",
+  "paymentDetails": {
+    "bank": {
+      "accountTitle": "People's Welfare Foundation",
+      "accountNumber": "REPLACE_WITH_REAL_ACCOUNT_NUMBER",
+      "iban": "REPLACE_WITH_REAL_IBAN",
+      "bankName": "REPLACE_WITH_REAL_BANK_NAME"
+    },
+    "jazzcash": {
+      "accountTitle": "People's Welfare Foundation",
+      "number": "REPLACE_WITH_REAL_JAZZCASH_NUMBER"
+    },
+    "easypaisa": {
+      "accountTitle": "People's Welfare Foundation",
+      "number": "REPLACE_WITH_REAL_EASYPAISA_NUMBER"
+    }
+  }
+}

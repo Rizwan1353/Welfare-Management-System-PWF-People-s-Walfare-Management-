@@ -1,0 +1,5 @@
+[
+  { "id": "v1", "name": "Hassan Ali", "district": "Jamshoro", "status": "pending", "appliedAt": "2026-07-25T00:00:00.000Z" },
+  { "id": "v2", "name": "Mehak Shaikh", "district": "Hyderabad", "status": "pending", "appliedAt": "2026-07-28T00:00:00.000Z" },
+  { "id": "v3", "name": "Zubair Khoso", "district": "Larkana", "status": "approved", "appliedAt": "2026-06-30T00:00:00.000Z" }
+]

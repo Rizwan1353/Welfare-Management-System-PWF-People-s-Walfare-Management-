@@ -1,0 +1,62 @@
+[
+  {
+    "id": "log1",
+    "action": "LOGIN",
+    "userId": "u2",
+    "userEmail": "ceo@pwf.org.pk",
+    "details": {},
+    "timestamp": "2026-08-09T09:00:00.000Z"
+  },
+  {
+    "id": "log2",
+    "action": "PROJECT_CREATED",
+    "userId": "u2",
+    "userEmail": "ceo@pwf.org.pk",
+    "details": {
+      "projectId": "p2",
+      "name": "Girls Literacy Program"
+    },
+    "timestamp": "2026-08-09T09:05:00.000Z"
+  },
+  {
+    "id": "log3",
+    "action": "DONATION_ENTRY",
+    "userId": null,
+    "userEmail": null,
+    "details": {
+      "donationId": "don5",
+      "referenceNo": "WF-2026-000105",
+      "amount": 7500,
+      "method": "JazzCash"
+    },
+    "timestamp": "2026-08-09T09:10:00.000Z"
+  },
+  {
+    "id": "log4",
+    "action": "DONATION_VERIFIED",
+    "userId": "u2",
+    "userEmail": "ceo@pwf.org.pk",
+    "details": {
+      "donationId": "don1",
+      "referenceNo": "WF-2026-000101",
+      "amount": 5000
+    },
+    "timestamp": "2026-08-09T09:20:00.000Z"
+  },
+  {
+    "id": "log5",
+    "action": "LOGOUT",
+    "userId": "u2",
+    "userEmail": "ceo@pwf.org.pk",
+    "details": {},
+    "timestamp": "2026-08-09T09:30:00.000Z"
+  },
+  {
+    "id": "mwn72jsge6qa",
+    "action": "LOGIN",
+    "userId": "u1",
+    "userEmail": "chairperson@pwf.org.pk",
+    "details": {},
+    "timestamp": "2026-11-19T06:54:03.184Z"
+  }
+]
